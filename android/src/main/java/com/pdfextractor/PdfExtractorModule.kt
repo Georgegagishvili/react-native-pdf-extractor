@@ -23,6 +23,7 @@ class PdfExtractorModule(reactContext: ReactApplicationContext) :
       PDFBoxResourceLoader.init(reactContext)
   }
 
+  @ReactMethod
   override fun extractTextFromPdf(filePath: String, callback: Callback) {
     Thread {
         try {
