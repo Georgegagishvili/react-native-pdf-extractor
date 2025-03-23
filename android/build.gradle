@@ -83,6 +83,7 @@ android {
 
 repositories {
   mavenCentral()
+  maven { url "https://dl.bintray.com/apache/pdfbox" } 
   google()
 }
 
@@ -91,6 +92,7 @@ def kotlin_version = getExtOrDefault("kotlinVersion")
 dependencies {
   implementation "com.facebook.react:react-android"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation("com.tom-roush:pdfbox-android:2.0.27.0")
 }
 
 react {
