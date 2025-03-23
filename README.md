@@ -1,33 +1,19 @@
 # react-native-pdf-extractor
 
-PDF Extractor for react native
+PDF Extractor for react native (Android Only For Now)
 
 ## Installation
 
 ```sh
-npm install react-native-pdf-extractor
+npm install https://github.com/Georgegagishvili/react-native-pdf-extractor
 ```
 
 ## Usage
 
-
 ```js
-import { multiply } from 'react-native-pdf-extractor';
+import { extractTextFromPdf } from 'react-native-pdf-extractor';
 
 // ...
 
-const result = multiply(3, 7);
+const result = await extractTextFromPdf(uri);
 ```
-
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
-## License
-
-MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
