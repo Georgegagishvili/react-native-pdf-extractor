@@ -2,10 +2,15 @@ package com.pdfextractor
 
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.module.annotations.ReactModule
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
+import com.facebook.react.bridge.Callback
 
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
 import com.tom_roush.pdfbox.text.PDFTextStripper;
 import com.tom_roush.pdfbox.android.PDFBoxResourceLoader;
+
+import android.content.Context
 
 import java.io.File
 import java.io.FileInputStream
@@ -32,6 +37,10 @@ class PdfExtractorModule(reactContext: ReactApplicationContext) :
             callback.invoke(e.message, null)
         }
     }.start()
+  }
+
+  override fun getName(): String {
+      return NAME
   }
 
   companion object {
