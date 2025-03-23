@@ -21,19 +21,17 @@ class PdfExtractorModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   override fun extractTextFromPdf(filePath: String, promise: Promise) {
-    Thread {
-        try {
-            val file = File(filePath)
-            val fileInputStream = FileInputStream(file)
-            val document = PDDocument.load(fileInputStream)
-            val stripper = PDFTextStripper()
-            val text = stripper.getText(document)
-            document.close()
-            promise.resolve(text)
-        } catch (e: Exception) {
-            promise.reject("PdfExtractorError", e)
-        }
-    }.start()
+    try {
+        val file = File(filePath)
+        val fileInputStream = FileInputStream(file)
+        val document = PDDocument.load(fileInputStream)
+        val stripper = PDFTextStripper()
+        val text = stripper.getText(document)
+        document.close()
+        promise.resolve(text)
+    } catch (e: Exception) {
+        promise.reject("PdfExtractorError", e)
+    }
   }
 
   override fun getName(): String {
